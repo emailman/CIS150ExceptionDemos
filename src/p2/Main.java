@@ -1,24 +1,33 @@
 package p2;
 
 /*
- * Created by emailman on 3/1/2016.
+ * Created by emailman on 3/1/2016
+ * Create a custom exception handler
  */
 
 public class Main {
     public static void main(String[] args) {
+        Balloon b1 = buildBalloon(-10, "yellow");
+
+        Balloon b2 = buildBalloon(10, "yellow");
+
+        Balloon b3 = buildBalloon(-8, "yellow");
+
+        Balloon b4 = buildBalloon(8, "yellow");
+    }
+
+    static Balloon buildBalloon(double arg1, String arg2) {
         try {
-            Balloon b1 = new Balloon(10, "Yellow");
-            System.out.println(b1);
-
-            Balloon b2 = new Balloon(-10, "Yellow");
-            System.out.println(b2);
-
+            Balloon b = new Balloon(arg1, arg2);
+            System.out.println(b);
+            return b;
         } catch (InvalidDiameterException e) {
             System.out.println(e);
         } finally {
             System.out.println
                     ("number of balloons = " + Balloon.getNumberOfBalloons());
         }
+        return null;
     }
 }
 
@@ -53,8 +62,8 @@ class Balloon {
 
 // Define a custom exception
 class InvalidDiameterException extends Exception {
-    // Construct an exception
+    // Construct the exception
     public InvalidDiameterException(double e) {
-        super("Invalid diameter " + e);
+        super("Invalid diameter: " + e);
     }
 }
