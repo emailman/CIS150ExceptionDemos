@@ -24,10 +24,12 @@ public class Main {
                 System.out.println("Zero or negative radius invalid");
 
         } catch (InputMismatchException e) {
+            // This is the most likely cause of an exception
             System.out.println(e);
             System.out.println("You messed up, number is required");
 
         } catch (Exception e) {
+            // This will catch any other exception
             e.printStackTrace();
             System.out.println("You messed up, I don't know why");
         }

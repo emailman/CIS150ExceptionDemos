@@ -22,8 +22,9 @@ public class Main {
             System.out.println(b);
             return b;
         } catch (InvalidDiameterException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         } finally {
+            // This will be done whether or not an exception occurred
             System.out.println
                     ("number of balloons = " + Balloon.getNumberOfBalloons());
         }
